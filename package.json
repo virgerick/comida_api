@@ -1,0 +1,23 @@
+{
+  "name": "comida_api",
+  "version": "1.0.0",
+  "description": "It is a api for a flutter app",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc & node .",
+    "dev": "tsc & nodemon ."
+  },
+  "author": "Cristian De jesus Dominguez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.8",
+    "nodemon": "^2.0.12",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
