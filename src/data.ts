@@ -1,4 +1,4 @@
-[
+export const result=[
     {
         "id":1,
         "name": "Pollo",

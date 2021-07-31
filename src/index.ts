@@ -1,11 +1,7 @@
-import express from 'express'
-const app = express()
-const port = 5000
+import app from './app';
+import  './data/database'
 
-
-app.get('/', async (_, res) => {
-    const result =await fetch('assets/json.json');
-  return res.status(200).send(result)
+app.listen(app.get('port'),()=>{
+   console.log(`server on http://localhost:${app.get('port')}`);
+    
 })
-
-app.listen(port, () => console.log(`Running on port ${port}`))
