@@ -3,13 +3,14 @@ import morgan from 'morgan'
 import cors from 'cors'
 import config from './config'
 import  menuRoutes from "./routes/menu.route";
+import {json} from "body-parser";
 
 
 const app=express();
 
 
 app.set('port',config.PORT);
-
+app.use(json());
 app.use(morgan('dev'));
 app.use(cors())
 // app.use(verseRoutes);

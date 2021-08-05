@@ -27,7 +27,7 @@ const MenuSchema = new Schema({
 
     },
     imagen: {
-        type: Number,
+        type: String,
         required: false,
         trim: true
     },

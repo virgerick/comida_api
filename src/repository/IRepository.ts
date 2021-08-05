@@ -1,6 +1,9 @@
+import { FilterQuery } from "mongoose";
 
-interface IRepository<T>{
-    get():Promise<T[]>;
-     getById(id:any):Promise<T|null>;
-    // create( model:T):Promise<T>;
+export default interface IRepository<T> {
+  get(filter?: FilterQuery<T>): Promise<T[]>;
+  find(id: any): Promise<T | null>;
+  add(model: T): Promise<T | null>;
+  update(id: any,model: T): Promise<T | null>;
+  delete(id: any): Promise<T | null>;
 }
