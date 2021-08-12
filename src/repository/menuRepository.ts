@@ -1,4 +1,4 @@
-import { FilterQuery, UpdateQuery, UpdateWithAggregationPipeline } from "mongoose";
+import { FilterQuery } from "mongoose";
 import MenuModel, { Menu } from "../models/Menu";
 import IRepository from "./IRepository";
 

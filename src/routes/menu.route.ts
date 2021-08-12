@@ -3,8 +3,8 @@ import { Router } from "express";
 import { MenuRepository } from "../repository/menuRepository";
 const router = Router();
 const Repostory: MenuRepository = new MenuRepository();
-const path='/api/menu/'
-router.get(path, async (req, res) => {
+const endPoint='/api/menu/'
+router.get(endPoint, async (req, res) => {
  try {
      const result = await Repostory.get(req.query);
      res.status(200).json(result);
@@ -14,7 +14,7 @@ router.get(path, async (req, res) => {
   
   
 });
-router.get(`${path}:id`, async (req, res) => {
+router.get(`${endPoint}:id`, async (req, res) => {
     try {
          const result = await Repostory.find(req.params.id);
   res.json(result);
@@ -23,7 +23,7 @@ router.get(`${path}:id`, async (req, res) => {
     }
  
 });
-router.post(path, async (req, res) => {
+router.post(endPoint, async (req, res) => {
     try {
          const result = await Repostory.add(req.body);
   res.json(result);
@@ -32,7 +32,7 @@ router.post(path, async (req, res) => {
     }
  
 });
-router.put(`${path}:id`, async (req, res) => {
+router.put(`${endPoint}:id`, async (req, res) => {
     try {
         const result = await Repostory.update(req.params.id,req.body);
         res.json(result);
@@ -41,7 +41,7 @@ router.put(`${path}:id`, async (req, res) => {
     }
   
 });
-router.delete(`${path}:id`, async (req, res) => {
+router.delete(`${endPoint}:id`, async (req, res) => {
     try {
         const result = await Repostory.delete(req.params.id);
   res.json(result);

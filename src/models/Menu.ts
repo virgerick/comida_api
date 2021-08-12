@@ -12,6 +12,11 @@ const MenuSchema = new Schema({
         required: true,
         trim: true
     },
+    description: {
+        type: String,
+        required: false,
+        trim: true
+    },
     price: {
         type: Number,
         required: true,
