@@ -7,7 +7,11 @@ export class UserRepository implements IRepository<User> {
   async login(model: User) {
     const user = await UserModel.findOne({ username: model.username });
     if (!user) return null;
-    if (compareSync(model.password, user!.password)) return user;
+
+    if (compareSync(model.password, user!.password)){
+        user.password=''
+        return user;
+    } 
     return null;
   }
   async get(filter?: FilterQuery<User>): Promise<User[]> {
