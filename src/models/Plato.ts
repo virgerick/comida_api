@@ -1,12 +1,14 @@
 import mongoose, { Schema, model } from "mongoose";
+import { Category } from './Category';
 
-export interface Menu extends mongoose.Document {
+export interface Plato extends mongoose.Document {
     name: string;
     price: Number;
     rate: Number;
     imagen: string;
+    category:String;
 };
-const MenuSchema = new Schema({
+const PlatoSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -36,5 +38,7 @@ const MenuSchema = new Schema({
         required: false,
         trim: true
     },
+    category:{type:mongoose.Schema.Types.ObjectId,ref:'Categories'},
+    
 });
-export default model<Menu>('Menu',MenuSchema)
+export default model<Plato>('Platos',PlatoSchema)

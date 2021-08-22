@@ -1,9 +1,9 @@
-import { Menu } from "../models/Menu";
+import { Plato } from "../models/Plato";
 import { Router } from "express";
-import { MenuRepository } from "../repository/menuRepository";
+import { PlatoRepository } from "../repository/platoRepository";
 const router = Router();
-const Repostory: MenuRepository = new MenuRepository();
-const endPoint='/api/menu/'
+const Repostory: PlatoRepository = new PlatoRepository();
+const endPoint='/api/platos/'
 router.get(endPoint, async (req, res) => {
  try {
      const result = await Repostory.get(req.query);
