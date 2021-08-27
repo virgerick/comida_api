@@ -1,11 +1,13 @@
 import mongoose, { Schema, model } from "mongoose";
 import bycript, { compareSync, hashSync } from "bcrypt";
+import Rol from "./Rol";
 
 export interface User extends mongoose.Document {
   name: string;
   lastname: string;
   username: string;
   password: string;
+  roles: string;
 }
 const saltRounds = 10;
 const UserSchema = new Schema({
@@ -30,6 +32,10 @@ const UserSchema = new Schema({
   direccion:{
       type:String,
       require:false,
+  },
+  roles:{
+    ref:'Roles',
+    type:mongoose.Schema.Types.ObjectId
   }
 });
 UserSchema.pre<User>("save", async function (next) {
@@ -44,4 +50,4 @@ UserSchema.pre<User>("save", async function (next) {
     next(error);
   }
 });
-export default model<User>("Users", UserSchema);
+export default model<User & mongoose.Document>("Users", UserSchema);

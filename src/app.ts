@@ -1,27 +1,21 @@
-import express from 'express';
-import morgan from 'morgan'
-import cors from 'cors'
-import config from './config'
-import  platoRoutes from "./routes/plato.route";
-import  accountRoutes from "./routes/account.route";
-import  categoryRoutes from "./routes/category.route";
-import {json} from "body-parser";
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import { json } from "body-parser";
+import config from "./config";
+import routes from "./routes";
+import path from "path";
 
 
-const app=express();
+const app = express();
 
-
-app.set('port',config.PORT);
+app.set("port", config.PORT);
 app.use(json());
-app.use(morgan('dev'));
-app.use(cors())
-// app.use(verseRoutes);
-// app.use(bibleRoutes);
-// Routers 
-app.use(accountRoutes)
-app.use(categoryRoutes)
-app.use(platoRoutes)
+app.use(morgan("dev"));
+app.use('/', express.static(path.join(__dirname, 'public')))
 
-
+app.use(cors());
+// Routes
+app.use(routes)
 
 export default app;

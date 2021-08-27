@@ -6,7 +6,7 @@ export interface Plato extends mongoose.Document {
     price: Number;
     rate: Number;
     imagen: string;
-    category:String;
+    category:Category;
 };
 const PlatoSchema = new Schema({
     name: {
@@ -41,4 +41,4 @@ const PlatoSchema = new Schema({
     category:{type:mongoose.Schema.Types.ObjectId,ref:'Categories'},
     
 });
-export default model<Plato>('Platos',PlatoSchema)
+export default model<Plato & mongoose.Document>('Platos',PlatoSchema)

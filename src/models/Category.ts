@@ -1,5 +1,4 @@
 import mongoose, { Schema, model } from "mongoose";
-import { Plato } from './Plato';
 
 export interface Category extends mongoose.Document {
   name: string;
@@ -12,4 +11,4 @@ const CategorySchema=new Schema({
     
 });
 
-export default model<Category>("Categories",CategorySchema);
+export default model<Category & mongoose.Document>("Categories",CategorySchema);
